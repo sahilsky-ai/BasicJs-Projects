@@ -1,0 +1,205 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #62cff4, #2c67f2); /* Gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: 90%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+    gap: 20px;
+    width: 90%;
+    height: 90%;
+    background: rgba(255, 255, 255, 0.1); /* Glassmorphism base */
+    border-radius: 20px;
+    backdrop-filter: blur(20px); /* Blur effect */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Border effect */
+    padding: 20px;
+}
+
+/* Individual Cards */
+.search-card,
+.weather-card,
+.details-card,
+.time-card {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent */
+    backdrop-filter: blur(15px); /* Blur effect for cards */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Grid Sizing for Individual Cards */
+.search-card {
+    grid-column: span 2; /* Smaller size */
+    grid-row: span 1; /* Takes one row */
+}
+
+.weather-card {
+    grid-column: span 2; /* Largest card, spans both columns */
+    grid-row: span 2; /* Takes two rows */
+}
+
+.details-card {
+    grid-column: span 1; /* Medium size, spans one column */
+    grid-row: span 1; /* Takes one row */
+}
+
+.time-card {
+    grid-column: span 1; /* Smaller size */
+    grid-row: span 1; /* Takes one row */
+}
+
+/* Search Card Styling */
+.search-card div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 0 20px 0 20px;
+}
+
+.search-card div h1{
+    width: 30%;
+    font-size: 24px;
+    display: flex; 
+    align-items: center; /* Center-align the content */
+    justify-content: space-between;
+
+
+}
+.search {
+    width: 70%;
+    max-width: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px 50px 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+    backdrop-filter: blur(10px); /* Blur effect for input */
+    background: rgba(255, 255, 255, 0.2);
+    color:black;
+}
+
+button {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Weather Card */
+.weather-card .data {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px; /
+}
+.weather-card .col {
+    
+    width: 50%;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center-align the content */
+    justify-content: space-between;
+   
+}
+.weather-card .weather-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.temp {
+    font-size: 72px;
+    font-weight: bold;
+}
+
+.city {
+    font-size: 36px;
+}
+
+/* Details Card */
+.details-card .details {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px; /* Add spacing between columns */
+}
+
+.details-card .col {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center-align the content */
+    justify-content: center;
+    margin-top: 7px;
+}
+
+.details-card .col img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px; /* Space between the image and text */
+}
+
+.details-card .col div {
+    text-align: center; /* Center-align the text below the image */
+    color: #fff; /* Ensure visibility on the gradient background */
+}
+
+/* Time Card */
+.time-card time {
+    font-size: 24px;
+    font-weight: bold;
+}

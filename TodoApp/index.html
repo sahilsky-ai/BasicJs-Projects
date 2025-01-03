@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(140.54deg, #608d00 0%, #d30000 72.37%),
+          linear-gradient(360deg, #0029ff 0%, #8fff00 100%),
+          radial-gradient(100% 164.72% at 100% 100%, #6100ff 0%, #00ff57 100%),
+          radial-gradient(100% 148.07% at 0% 0%, #fff500 0%, #51d500 100%);
+        background-blend-mode: color-dodge, overlay, difference, normal;
+      }
+      .container {
+        width: 50%;
+        height: 90vh;
+        background-color: white;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: rgb(255, 115, 0);
+        font-size: 36px;
+      }
+    
+      .inputbox {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; /* Enable positioning of child elements */
+        margin-top: 20px;
+      }
+
+      input {
+        max-width: 800px;
+        width: 80%; /* Responsive width */
+        height: 40px;
+        padding: 10px 20px;
+        border-radius: 40px;
+        border: 2px solid rgb(255, 115, 0) ;
+        font-size: 18px;
+        padding-right: 100px; /* Leave space for the button */
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        outline: none;
+      }
+      #btn {
+        position: absolute; /* Position the button inside the input field */
+        right: 10%; /* Align the button to the right */
+        height: 40px; /* Adjust the height to match the input field */
+        width: 80px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        background-color: rgb(255, 115, 0);
+        border-radius: 40px;
+        padding: 5px 15px;
+        cursor: pointer;
+        font-size: 18px;
+        border: none;
+      }
+      #btn:active {
+        transform: translateY(-50%) scale(0.95);
+      }
+      #btn:focus {
+        outline: none;
+      }
+      #btn:hover {
+        background-color: rgb(0, 0, 0);
+      }
+      ul {
+        padding: 0;
+        margin-top: 20px;
+        width: 100%;
+        list-style: none;
+      }
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        margin: 10px auto;
+        padding: 10px 20px;
+        border-radius: 40px;
+        border: 2px solid rgb(255, 115, 0);
+        font-size: 18px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+      }
+      button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+        button:hover {
+            background-color: rgb(255, 115, 0);
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="h" style="color: rgb(255, 115, 0);">To Do List</h1>
+      <div class="inputbox">
+        <input type="text" id="input" />
+        <button id="btn">Add</button>
+      </div>
+      <ul id="list">
+        <!-- <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li>item 4</li> -->
+      </ul>
+    </div>
+
+    <script>
+      
+      const name = document.getElementById("name");
+      const btn = document.getElementById("btn");
+      const input = document.getElementById("input");
+      const list = document.getElementById("list");
+
+      btn.addEventListener("click", () => {
+        const task = input.value.trim();
+
+        if (task === "") {
+          alert("Please enter a task");
+        } else {
+          const li = document.createElement("li");
+
+          const taskSpan = document.createElement("span");
+          taskSpan.textContent = task;
+          
+
+          const removeBtn = document.createElement("button");
+          removeBtn.textContent = "remove";
+
+          li.appendChild(taskSpan);
+          li.appendChild(removeBtn);
+
+          list.appendChild(li);
+          input.value = "";
+
+          taskSpan.addEventListener("click", () => {
+            taskSpan.style.textDecoration = "line-through";
+          });
+          removeBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            list.removeChild(li);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
